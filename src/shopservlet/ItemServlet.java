@@ -33,26 +33,57 @@ public class ItemServlet extends HttpServlet {
 
 		request.setCharacterEncoding("UTF-8");
 		ArrayList<ItemBean> item = null;
+
 		try{
 				shop shop = new shop();
 				item = shop.execute(request);
 
-				if(item != null){
-				System.out.println(item);
-				ServletContext context = getServletContext();
-				RequestDispatcher rd = context.getRequestDispatcher("/itemlist.jsp");
-				rd.forward(request, response);
+				String cate = request.getParameter("cate");
+				System.out.println("cate="+cate);
 
-				}else{
-					request.setAttribute("message", "商品がないです");
+				if( cate != null && !cate.equals("")){
+					ArrayList<ItemBean> catelist = new ArrayList<ItemBean>();
+
+					for(ItemBean cateitem : item){
+						if(cate.equals(cateitem.getCategory())){
+
+							cateitem.getItem_id();
+							cateitem.getItem_name();
+							cateitem.getPrice();
+							cateitem.getItemquantity();
+
+							catelist.add(cateitem);
+						}
+					}
+
+					request.setAttribute("getcate", catelist);
+
 					ServletContext context = getServletContext();
 					RequestDispatcher rd = context.getRequestDispatcher("/itemlist.jsp");
 					rd.forward(request, response);
+
+				}else{
+
+					if(item != null){
+					request.setAttribute("itembean", item);
+					System.out.println(item);
+					ServletContext context = getServletContext();
+					RequestDispatcher rd = context.getRequestDispatcher("/itemlist.jsp");
+					rd.forward(request, response);
+
+					}else{
+						request.setAttribute("message", "商品がないです");
+						ServletContext context = getServletContext();
+						RequestDispatcher rd = context.getRequestDispatcher("/itemlist.jsp");
+						rd.forward(request, response);
+					}
+
 				}
 
 		}catch(Exception e){
 			request.setAttribute("message", "エラーです");
 		}
+
 	}
 
 	/**

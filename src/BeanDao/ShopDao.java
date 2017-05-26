@@ -21,7 +21,7 @@ public class ShopDao extends HttpServlet {
 	private Connection connection;
 
 	public ShopDao() throws ClassNotFoundException, SQLException{
-		Class.forName("com.mysql.jdbc.Driver");
+
 		String url = "jdbc:mysql://localhost:3306/shopdata";
 		String user = "root";
 		String password = "imaima";
@@ -62,6 +62,7 @@ public class ShopDao extends HttpServlet {
 				bean.setItem_name(rs.getString("item_name"));
 				bean.setPrice(rs.getInt("price"));
 				bean.setItemquantity(rs.getInt("quantity"));
+				bean.setCategory(rs.getString("category"));
 
 				itemArray.add(bean);
 
@@ -73,6 +74,7 @@ public class ShopDao extends HttpServlet {
 		}
 		return itemArray;
 	}
+
 
 	public void BuyData(String id, String item_id, int quantity) throws SQLException{
 
@@ -104,6 +106,7 @@ public class ShopDao extends HttpServlet {
 			ps.close();
 		};
 	}
+
 
 	public ArrayList<ItemBean> UserHistory(String id) throws SQLException{
 

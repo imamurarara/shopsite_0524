@@ -59,16 +59,17 @@ public class LoginDao extends HttpServlet {
 			ps.setString(1, id);
 			ps.setString(2, password);
 
-			System.out.println("pst" + ps.toString());
-
-
 			rs = ps.executeQuery();
 
+			System.out.println("pst" + ps.toString());
+
 			while(rs.next()){
+				System.out.println("pst" + ps.toString());
 				bean = new UserBean();
 				bean.setId((Integer)rs.getInt("id"));
 				bean.setPassword(rs.getString("pass"));
 				bean.setName(rs.getString("name"));
+				System.out.println("bean" + bean.toString());
 			}
 			rs.close();
 

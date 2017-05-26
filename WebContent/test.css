@@ -1,0 +1,155 @@
+@CHARSET "UTF-8";
+
+
+//共通部分トップページ
+
+html,body {
+	height: 100%;
+	width: 100%;
+	margin: 0;
+}
+
+body {
+
+	height: 100%;
+
+}
+
+#cont{
+    width: 100%;
+    text-align: center;
+    margin: 0 auto;
+}
+
+#header {
+	background: linear-gradient(-65deg, #4D7393, #6369D1);
+	height: 180px;
+	width: 100%;
+	position: absolute;
+	top: 0;
+	box-shadow: 0 -5px 20px 5px rgba(0,0,0,0.18) inset;
+}
+
+h1 {
+	font-size: 40px;
+	color: #FFF;
+	text-align: center;
+	font-family: 'Josefin Slab', serif;
+	text-shadow: 5px 5px 3px #26547C;
+	position: relative;
+	top: 30px;
+}
+
+h1 span {
+	font-size: 80px;
+}
+
+#open_login,
+#open_new {
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	display: none;
+	position: absolute;
+}
+
+#btn{
+	text-align: center;
+	position: relative;
+	top: 210px;
+
+}
+
+.a {
+	width: 170px;
+	margin-bottom: 5px;
+	display: inline-block;
+	background-color: black;
+	text-decoration: none;
+    padding: 8px 0 10px;
+    border-radius: 7px;
+    background: #6369D1;
+    font-family: "Noto Sans Japanese";
+    color: #FFF;
+    border-style: none;
+
+}
+
+.a a:link { color: #FFF; text-decoration: none;}
+.a a:visited { color: #FFF; text-decoration: none;}
+.a a:hover { color: #E0E4E8; text-decoration: none;}
+.a a:active { color: #FFF; text-decoration: none; }
+
+.close {
+	font-size: 10px;
+}
+
+.close_btn {
+	top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    text-indent: -9999px;
+    position: absolute;
+    background: #000;
+    opacity: 0.5;
+    z-index: 5;
+}
+
+.window {
+	 top: 50%;
+    left: 50%;
+    margin: -150px 0 0 -200px;
+    width: 400px;
+    height: 300px;
+    text-align: center;
+    display: block;
+    background: #fff;
+    position: absolute;
+    z-index: 10;
+    border-radius: 5px;
+
+}
+
+@-webkit-keyframes modalFadeIn {
+    0% {opacity:0;display:block;}
+    100% {opacity:1;}
+}
+
+div#btn_form div:target {
+    -webkit-animation-name: modalFadeIn;
+    -webkit-animation-duration: 1.5s;
+    -webkit-animation-iteration-count: 1;
+    opacity: 1;
+    display: block;
+}
+
+
+
+h2 {
+	font-family: 'Josefin Slab', serif;
+}
+
+.hr {
+	position: relative;
+	top: 220px;
+	width: 70%;
+	border: 0;
+  	height: 1px;
+    background-image: -webkit-linear-gradient(left, #f0f0f0, #6369D1, #f0f0f0);
+    background-image: -moz-linear-gradient(left, #f0f0f0, #6369D1, #f0f0f0);
+    background-image: -ms-linear-gradient(left, #f0f0f0, #6369D1, #f0f0f0);
+    background-image: -o-linear-gradient(left, #f0f0f0, #6369D1, #f0f0f0);
+}
+
+.logform{
+	display: inline-block;
+	text-align: left;
+	margin-top: 20px;
+	margin-bottom: 30px;
+}
+
+
+//２ページ目以降

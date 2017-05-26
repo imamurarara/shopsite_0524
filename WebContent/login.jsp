@@ -3,21 +3,69 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<link href="https://fonts.googleapis.com/css?family=Josefin+Slab" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/earlyaccess/notosansjapanese.css" rel="stylesheet" />
+    <link href="test.css" rel="stylesheet" type="text/css" media="all" />
+
 <title>SHOP</title>
 </head>
 <body>
 
+  <div id="cont">
+    <div id="header">
+    <h1>Welcome to <span>'Selfme'</span></h1>
+    </div>
 
-<div id="Continer">
-	<form action="LoginServlet" method="post">
-		<p>ID</p><input type="text" name="id" />
-		<p>PASSWORD</p><input type="password" name="password" />
-		<button type="submit" name="logaction" value="log_action">ログイン</button>
-	</form>
-</div>
-<font color="red">${ message }</font>
+
+    <div id="btn">
+      <div class="a"><a href="#open_login">ログインする？</a></div>
+      <div class="a"><a href="#open_new">新規会員登録する？</a></div>
+    </div>
+    <hr class="hr" />
+
+  <div id="btn_form">
+    <div id="open_login">
+      <a href="#" class="close_btn">×</a>
+        <div class="window">
+          <h2>LOGIN</h2>
+          <a href="http://black-flag.net" target="_blank"></a>
+          <font color="red">${ message }</font>
+          <form action="LoginServlet" method="post">
+            <div class="logform">
+              <span>USER ID</span><br /><br />
+              <span>PASSWORD </span>
+            </div>
+            <div class="logform">
+             <input type="text" name="id" value="" /><br /><br />
+              <input type="password" name="password" value="" /><br />
+            </div>
+            <button type="submit" name="logaction" value="log_action" class="a">ログインする！</button>
+          </form>
+
+          <a href="#" class="close　">（×）CLOSE</a>
+        </div>
+    </div>
+    <div id="open_new">
+      <a href="#" class="close_btn">×</a>
+        <div class="window">
+          <h2>NEW ACOUNT</h2>
+          <a href="http://black-flag.net" target="_blank"></a>
+          <a href="#">（×）CLOSE</a>
+    </div>
+    </div>
+
+  </div>
+
+   <!-- jQuery (necessary for Bootstrap’s JavaScript plugins) -->
+    <script src=“https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js”></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src=“https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js” integrity=“sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa” crossorigin=“anonymous”>
+
+    </script>
+  </body>
+</html>
 
 </body>
 </html>

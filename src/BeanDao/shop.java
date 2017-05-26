@@ -17,15 +17,22 @@ public class shop extends HttpServlet {
 	public ArrayList<ItemBean> execute(HttpServletRequest request)  {
 		// TODO 自動生成されたメソッド・スタブ
 		ShopDao shopdao = null;
+
+
+
 		ArrayList<ItemBean> itembean = null;
 		try{
 				shopdao = new ShopDao();
 				itembean = shopdao.ItemData();
 
-				if(itembean == null){
-					request.setAttribute("message", "商品がありません");
-				}else{
-					request.setAttribute("itembean", itembean);
+				String cate = (String)request.getAttribute("cate");
+				if( cate == null){
+
+					if(itembean == null){
+						request.setAttribute("message", "商品がありません");
+					}else{
+						request.setAttribute("itembean", itembean);
+					}
 				}
 
 		}catch(SQLException | ClassNotFoundException e){

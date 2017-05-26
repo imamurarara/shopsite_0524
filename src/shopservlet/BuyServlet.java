@@ -35,6 +35,7 @@ public class BuyServlet extends HttpServlet {
 		String userid = (String)session.getAttribute("userid");
 
 		System.out.println("quantit=" +quantity + "user="+ userid);
+		System.out.println(request.getAttribute("i"));
 
 		String[] buyitem = {item_id, item_name, price, quantity, userid};
 		session.setAttribute("buyitem", buyitem);
@@ -54,6 +55,7 @@ public class BuyServlet extends HttpServlet {
 				RequestDispatcher rd = context.getRequestDispatcher("/confirm.jsp");
 				rd.forward(request, response);
 			}
+
 
 
 

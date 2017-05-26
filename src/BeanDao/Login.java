@@ -29,6 +29,7 @@ public class Login extends HttpServlet {
 			if(id != null && !id.equals("") && password != null && !password.equals("")){
 				logindao = new LoginDao();
 				userbean = logindao.LoginData(id, password);
+				System.out.println("koko"+userbean);
 
 				if(userbean == null){
 					request.setAttribute("message", "IDかPASSWORDが間違っています");
