@@ -30,18 +30,22 @@ public class LoginServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 
 
-		String logact = request.getParameter("loginaction");
+		String logact = request.getParameter("logaction");
+		String account = request.getParameter("newaccount");
+
+		String newId = request.getParameter("new_id");
+		String newName = request.getParameter("new_name");
+		String newPassword = request.getParameter("new_password");
+
 		UserBean user = null;
 		HttpSession session = request.getSession(true);
 
 		System.out.println("1="+ logact);
 
 		try{
-			if( logact == null || logact.equals("")){
+			if( logact != null && logact.equals("logaction")){
 				Login login = new Login();
-				System.out.println("2="+ user);
 				user = login.execute(request);
-
 
 				if( user != null ){
 				ServletContext context = getServletContext();
@@ -55,7 +59,27 @@ public class LoginServlet extends HttpServlet {
 					rd.forward(request, response);
 				}
 
-			}else{
+
+			}else if( account != null && account.equals("newaccount")){
+
+				if(newId != null && !newId.equals("") &&newName != null && !newName.equals("") &&newPassword != null && !newPassword.equals("") ){
+					Login newaccount = new Login();
+					newaccount.account(newId, newPassword, newName);
+					request.setAttribute("message", "会員登録できました。ログイン画面からログインしてください。");
+					ServletContext context = getServletContext();
+					RequestDispatcher rd = context.getRequestDispatcher("/login.jsp");
+					rd.forward(request, response);
+				}else{
+					request.setAttribute("message", "すべて入力してください。");
+					ServletContext context = getServletContext();
+					RequestDispatcher rd = context.getRequestDispatcher("/login.jsp");
+					rd.forward(request, response);
+
+				}
+
+			}
+
+			else{
 				request.setAttribute("message", "入力してください");
 				ServletContext context = getServletContext();
 				RequestDispatcher rd = context.getRequestDispatcher("/login.jsp");

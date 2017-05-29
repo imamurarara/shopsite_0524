@@ -51,6 +51,17 @@ public class Login extends HttpServlet {
 
 		}return userbean;
 
+	}
+
+	public void account(String id, String pass, String name) {
+		try {
+			LoginDao account = new LoginDao();
+			account.userAccount(id, pass, name);
+
+		} catch (ClassNotFoundException | SQLException e) {
+			// TODO 自動生成された catch ブロック
+			e.printStackTrace();
+		}
 
 	}
 

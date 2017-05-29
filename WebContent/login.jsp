@@ -1,5 +1,7 @@
 	<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -20,6 +22,7 @@
 
 
     <div id="btn">
+    	<font color="red">${ message }</font><br />
       <div class="a"><a href="#open_login">ログインする？</a></div>
       <div class="a"><a href="#open_new">新規会員登録する？</a></div>
     </div>
@@ -31,17 +34,17 @@
         <div class="window">
           <h2>LOGIN</h2>
           <a href="http://black-flag.net" target="_blank"></a>
-          <font color="red">${ message }</font>
           <form action="LoginServlet" method="post">
             <div class="logform">
               <span>USER ID</span><br /><br />
               <span>PASSWORD </span>
             </div>
             <div class="logform">
-             <input type="text" name="id" value="" /><br /><br />
-              <input type="password" name="password" value="" /><br />
+             <input type="text" name="id" value="" required /><br /><br />
+              <input type="password" name="password" value="" required /><br />
             </div>
-            <button type="submit" name="logaction" value="log_action" class="a">ログインする！</button>
+            <input type="hidden" name="logaction" value="logaction" />
+            <button type="submit" class="a">ログインする！</button>
           </form>
 
           <a href="#" class="close　">（×）CLOSE</a>
@@ -52,6 +55,20 @@
         <div class="window">
           <h2>NEW ACOUNT</h2>
           <a href="http://black-flag.net" target="_blank"></a>
+           <form action="LoginServlet" method="post">
+            <div class="logform">
+              <span>USER NAME</span><br /><br />
+              <span>USER ID</span><br /><br />
+              <span>PASSWORD </span>
+            </div>
+            <div class="logform">
+            <input type="text" name="new_name" value="" required  /><br /><br />
+             <input type="text" name="new_id" value="" required /><br /><br />
+              <input type="password" name="new_password" value="" required  /><br />
+            </div>
+            <input type="hidden" name="newaccount" value="newaccount" />
+            <button type="submit" class="a">会員登録する</button>
+          </form>
           <a href="#">（×）CLOSE</a>
     </div>
     </div>

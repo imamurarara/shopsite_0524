@@ -25,19 +25,21 @@
 
 <body>
 
-
  <div id="cont">
 
     <div id="head2">
       <h3>Selfme</h3>
     </div>
 
+
     <div id="menu">
       <ul id="nav">
         <li class=""><p class="home"><a href="#"><i class="fa fa-user fa-fw fa-2x"></i>user</a></p>
           <ul class="menu_sec">
             <li><a href="#">現在の目標</a></li>
-            <li><a href="#">過去の頑張り</a></li>
+            <li><a href="#">
+            	<form action="userHistory.jsp"><button>過去の頑張り</button></form>
+            </a></li>
             <li><a href="#">
             	<form action="ResultServlet" method="post">
 					<input type="hidden" name="hist" value="hist" />
@@ -46,7 +48,13 @@
 				</form>
             	</a></li>
             <li><a href="#">設定</a></li>
-            <li><a href="#">ログアウト</a></li>
+            <li><a href="#">
+            <form action="logoutServlet" method="post">
+					<input type="hidden" name="logout" value="logout" />
+					<button>ログアウト</button>
+				</form>
+				</a>
+            </li>
           </ul>
          </li>
       </ul>

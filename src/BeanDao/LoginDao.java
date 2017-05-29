@@ -78,4 +78,27 @@ public class LoginDao extends HttpServlet {
 		}
 		return bean;
 	}
+
+	public void userAccount(String id, String pass, String name) throws SQLException{
+
+		UserBean bean = null;
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+
+		try{
+			String sql ="insert into user (id, pass, name) values (?, ?, ?)";
+			ps = connection.prepareStatement(sql);
+			ps.setString(1, id);
+			ps.setString(2, pass);
+			ps.setString(3, name);
+
+			ps.executeUpdate();
+
+			System.out.println("pst" + ps.toString());
+
+
+		}finally{
+			ps.close();
+		}
+	}
 }

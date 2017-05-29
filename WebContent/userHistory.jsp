@@ -1,10 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>過去を振り返るページ</title>
 
  <link href="https://fonts.googleapis.com/css?family=Josefin+Slab" rel="stylesheet">
  <link href="https://fonts.googleapis.com/earlyaccess/notosansjapanese.css" rel="stylesheet" />
@@ -12,15 +13,17 @@
  <link href="test.css" rel="stylesheet" type="text/css" media="all" />
  <link href="second.css" rel="stylesheet" type="text/css" media="all" />
 
+
 </head>
 <body>
-<header>
- ようこそ「<jsp:getProperty property="name" name="user_db"/>」さん！
-<a href="/プロジェクト名/LoginServlet?submit=購入履歴">購入履歴</a>
-<a href="/プロジェクト名/LoginServlet?submit=ログアウト">ログアウト</a>
-</header>
+ <div id="cont">
 
- <div id="menu">
+    <div id="head2">
+      <h3>Selfme</h3>
+    </div>
+
+
+    <div id="menu">
       <ul id="nav">
         <li class=""><p class="home"><a href="#"><i class="fa fa-user fa-fw fa-2x"></i>user</a></p>
           <ul class="menu_sec">
@@ -34,13 +37,32 @@
 				</form>
             	</a></li>
             <li><a href="#">設定</a></li>
-            <li><a href="#">ログアウト</a></li>
+            <li><a href="#">
+            <form action="logoutServlet" method="post">
+					<input type="hidden" name="logout" value="logout" />
+					<button>ログアウト</button>
+				</form>
+				</a>
+            </li>
           </ul>
          </li>
       </ul>
     </div>
 
+ <div id="list">
 
+<div id="category">
+<h4>過去を振り返る</h4>
+</div>
+<hr class="bor" />
+
+
+<div id="itemlist">
+
+</div>
+
+
+   </div>
 
 </body>
 </html>

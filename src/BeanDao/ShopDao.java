@@ -89,7 +89,7 @@ public class ShopDao extends HttpServlet {
 
 		}finally{
 			ps.close();
-		};
+		}
 	}
 
 	public void Quantity(int quantity, String item_id) throws SQLException{

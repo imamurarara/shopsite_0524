@@ -14,7 +14,14 @@ public class UserBean extends HttpServlet {
 	private int id;
 	private String password;
 	private String name;
+	private int data;
 
+	public int getData() {
+		return data;
+	}
+	public void setData(int data) {
+		this.data = data;
+	}
 	public int getId() {
 		return id;
 	}
